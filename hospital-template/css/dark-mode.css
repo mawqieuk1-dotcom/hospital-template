@@ -1,0 +1,74 @@
+/* =========================================
+   مستشفى الحياة الحكومي - الوضع الليلي
+   ========================================= */
+
+body.dark {
+    --bg: #12181f;
+    --bg-secondary: #1a2630;
+    --text: #e0e0e0;
+    --text-light: #a0aab5;
+    --card-bg: #1e2b38;
+    --card-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    --header-bg: rgba(30,43,56,0.9);
+    --primary: #00c9a7;
+    --primary-dark: #1a2630;
+}
+
+/* أزرار الحدود في الهيرو */
+body.dark .btn-outline {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+body.dark .btn-outline:hover {
+    background: var(--accent);
+    color: #000;
+}
+
+/* خلفيات البطاقات */
+body.dark .card,
+body.dark .doctor-card,
+body.dark .booking-form,
+body.dark .why-card,
+body.dark .dept-card,
+body.dark .doctor-profile {
+    background: var(--card-bg);
+}
+
+/* نص الفوتر */
+body.dark .footer-col p,
+body.dark .footer-col li {
+    color: #b0c4de;
+}
+
+/* شريط التنقل السفلي */
+body.dark .bottom-nav {
+    background: var(--card-bg);
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* المودال */
+body.dark .modal-content {
+    background: var(--card-bg);
+}
+
+/* عناصر المعلومات في الأقسام والأطباء */
+body.dark .info-item,
+body.dark .meta-item {
+    background: var(--bg-secondary);
+}
+body.dark .info-item:hover,
+body.dark .meta-item:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+/* أيقونات السوشيال ميديا */
+body.dark .social-links a {
+    background: rgba(255,255,255,0.05);
+}
+
+/* تحسين قراءة النصوص */
+body.dark .dept-info p,
+body.dark .doctor-body p {
+    color: #b0c4de;
+}

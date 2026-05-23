@@ -1,0 +1,276 @@
+/* ========== Chatbot Styles ========== */
+.chatbot-container {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    z-index: 2000;
+    font-family: 'Tajawal', sans-serif;
+}
+
+/* زر فتح الشات */
+.chatbot-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #00c9a7, #00b4d8);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,201,167,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: #fff;
+    transition: all 0.3s ease;
+    position: relative;
+}
+.chatbot-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 15px 40px rgba(0,201,167,0.6);
+}
+.chatbot-toggle .pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: inherit;
+    animation: pulse 2s infinite;
+    z-index: -1;
+}
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* نافذة الشات */
+.chatbot-window {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 380px;
+    height: 520px;
+    background: var(--card-bg);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    animation: slideUp 0.4s ease;
+    border: 1px solid rgba(0,201,167,0.2);
+}
+.chatbot-window.open {
+    display: flex;
+}
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* هيدر الشات */
+.chatbot-header {
+    background: linear-gradient(135deg, #0a4c6b, #083b53);
+    color: #fff;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.chatbot-header .bot-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.chatbot-header .bot-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #00c9a7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+}
+.chatbot-header .bot-name {
+    font-weight: 700;
+    font-size: 1rem;
+}
+.chatbot-header .bot-status {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+.chatbot-close {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.4rem;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+.chatbot-close:hover { opacity: 1; }
+
+/* جسم الشات */
+.chatbot-body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: var(--bg-secondary);
+}
+.chatbot-body::-webkit-scrollbar {
+    width: 4px;
+}
+.chatbot-body::-webkit-scrollbar-thumb {
+    background: var(--accent);
+    border-radius: 10px;
+}
+
+/* فقاعات الرسائل */
+.message {
+    max-width: 85%;
+    padding: 12px 16px;
+    border-radius: 18px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    animation: fadeIn 0.3s ease;
+    word-wrap: break-word;
+}
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.message.bot {
+    background: var(--card-bg);
+    color: var(--text);
+    align-self: flex-start;
+    border-bottom-right-radius: 6px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+.message.user {
+    background: var(--accent);
+    color: #fff;
+    align-self: flex-end;
+    border-bottom-left-radius: 6px;
+}
+.message.typing {
+    background: var(--card-bg);
+    color: var(--text-light);
+    align-self: flex-start;
+    font-style: italic;
+}
+.typing-dots {
+    display: flex;
+    gap: 4px;
+}
+.typing-dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: bounce 1.4s infinite;
+}
+.typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+.typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes bounce {
+    0%, 60%, 100% { transform: translateY(0); }
+    30% { transform: translateY(-10px); }
+}
+
+/* زر الحجز داخل الشات */
+.quick-book-btn {
+    display: inline-block;
+    padding: 8px 18px;
+    background: #0a4c6b;
+    color: #fff;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+    margin-top: 8px;
+    transition: background 0.3s;
+    border: none;
+    cursor: pointer;
+}
+.quick-book-btn:hover {
+    background: #083b53;
+}
+
+/* حقل الإدخال */
+.chatbot-footer {
+    padding: 14px 20px;
+    background: var(--card-bg);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border-top: 1px solid rgba(0,0,0,0.05);
+}
+.chatbot-footer input {
+    flex: 1;
+    padding: 12px 18px;
+    border: 1px solid #dde4ec;
+    border-radius: 25px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    background: var(--bg-secondary);
+    color: var(--text);
+    outline: none;
+    transition: border 0.3s;
+}
+.chatbot-footer input:focus {
+    border-color: var(--accent);
+}
+.chatbot-footer button {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: none;
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.chatbot-footer button:hover {
+    background: var(--accent-hover);
+    transform: scale(1.05);
+}
+
+/* اقتراحات سريعة */
+.quick-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+.suggestion-chip {
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.suggestion-chip:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+/* تجاوب */
+@media (max-width: 480px) {
+    .chatbot-window {
+        width: 95vw;
+        right: 2.5vw;
+        height: 70vh;
+    }
+    .chatbot-container {
+        bottom: 80px;
+        right: 10px;
+    }
+}
