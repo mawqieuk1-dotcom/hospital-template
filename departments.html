@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأقسام الطبية | مستشفى الحياة الحكومي - الكويت</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/hospital-template/css/style.css">
+    <link rel="stylesheet" href="/hospital-template/css/dark-mode.css" id="dark-mode-css" disabled>
+    <!-- Favicon SVG -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a4c6b'/%3E%3Cpath d='M50 25 L70 45 L70 75 L30 75 L30 45 Z' fill='%2300c9a7'/%3E%3Crect x='42' y='50' width='16' height='18'
+ rx='3' fill='%23fff'/%3E%3Ccircle cx='50' cy='38' r='6' fill='%23fff'/%3E%3C/svg%3E">
+    <style>
+        /* أنماط خاصة بصفحة الأقسام */
+        .page-banner {
+            background: linear-gradient(135deg, #0a3d5c 0%, #0a4c6b 100%);
+            color: #fff;
+            padding: 100px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-banner::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(0,201,167,0.15) 0%, transparent 60%),
+                        radial-gradient(circle at 70% 30%, rgba(0,180,216,0.1) 0%, transparent 60%);
+            z-index: 0;
+        }
+        .page-banner .container { position: relative; z-index: 1; }
+        .page-banner h1 {
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        .page-banner p {
+            font-size: 1.2rem;
+            color: #b0d4e3;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .dept-section {
+            padding: 80px 0;
+        }
+        .dept-card {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 40px rgba(10,76,107,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: flex-start;
+            border: 1px solid transparent;
+        }
+        .dept-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(10,76,107,0.2);
+            border-color: var(--accent);
+        }
+        .dept-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, var(--accent), #00b4d8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #fff;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+        .dept-card:hover .dept-icon {
+            transform: rotate(5deg) scale(1.1);
+        }
+        .dept-info { flex: 1; min-width: 280px; }
+        .dept-info h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .dept-info .badge-dept {
+            display: inline-block;
+            background: var(--accent);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .dept-info p {
+            color: var(--text-light);
+            line-height: 1.9;
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        .info-item {
+            background: var(--bg-secondary);
+            padding: 15px 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+            color: var(--text);
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        .info-item:hover {
+            background: var(--accent);
+            color: #fff;
+            transform: translateX(-5px);
+        }
+        .info-item i {
+            color: var(--accent);
+            font-size: 1.2rem;
+            width: 24px;
+            text-align: center;
+            transition: color 0.3s ease;
+        }
+        .info-item:hover i {
+            color: #fff;
+        }
+        @media (max-width: 992px) {
+            .dept-card { flex-direction: column; }
+            .dept-icon { margin: 0 auto; }
+            .dept-info h2 { flex-direction: column; align-items: flex-start; }
+        }
+        @media (max-width: 768px) {
+            .page-banner h1 { font-size: 2.4rem; }
+            .dept-card { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- ========== HEADER ========== -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+    <img src="images/logo.svg" alt="مستشفى الحياة" width="200">
+</a>
+            <nav class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li><a href="index.html" data-i18n="nav_home">الرئيسية</a></li>
+                    <li><a href="departments.html" class="active" data-i18n="nav_depts">الأقسام</a></li>
+                    <li><a href="doctors.html" data-i18n="nav_doctors">الأطباء</a></li>
+                    <li><a href="index.html#book" data-i18n="nav_book">حجز موعد</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button id="langToggle" class="icon-btn"><i class="fas fa-globe"></i> <span>English</span></button>
+                <button id="darkModeToggle" class="icon-btn"><i class="fas fa-moon"></i></button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== PAGE BANNER ========== -->
+    <section class="page-banner">
+        <div class="header-bg">
+            <div class="neon-line"></div>
+            <div class="neon-line delay-1"></div>
+            <div class="neon-line delay-2"></div>
+        </div>
+        <div class="container">
+            <h1 data-aos="fade-down" data-i18n="depts_banner_title">أقسامنا الطبية المتطورة</h1>
+            <p data-aos="fade-up" data-i18n="depts_banner_desc">نقدم رعاية صحية شاملة عبر مراكز تميز عالمية مجهزة بأحدث التقنيات الطبية</p>
+        </div>
+        <div class="hero-bg">
+            <div class="glow-circle circle1"></div>
+            <div class="glow-circle circle2"></div>
+            <div class="glow-circle circle3"></div>
+            <div class="floating-dots"></div>
+        </div>
+    </section>
+
+    <!-- ========== DEPARTMENTS LIST ========== -->
+    <section class="dept-section">
+        <div class="container">
+
+            <!-- قسم القلب -->
+            <div class="dept-card" id="cardiology" data-aos="fade-up">
+                <div class="dept-icon"><i class="fas fa-heart-pulse"></i></div>
+                <div class="dept-info">
+                    <h2 data-i18n="dept1_title">أمراض القلب والقسطرة</h2>
+                    <p data-i18n="dept1_full_desc">يقدم قسم أمراض القلب لدينا خدمات تشخيصية وعلاجية متكاملة باستخدام أحدث تقنيات القسطرة القلبية وجراحة القلب المفتوح. يضم القسم نخبة من الاستشاريين الحاصلين على زمالات دولية من أرقى الجامعات العالمية. نقدم أيضاً برامج متخصصة لإعادة التأهيل القلبي والإشراف الطبي المستمر.</p>
+                    <div class="info-grid">
+                        <div class="info-item"><i class="fas fa-clock"></i> <span data-i18n="dept1_hours">الأحد - الخميس: 7 صباحاً - 10 مساءً</span></div>
+                        <div class="info-item"><i class="fas fa-map-marker-alt"></i> <span data-i18n="dept1_location">المبنى الرئيسي - الطابق الثالث</span></div>
+                        <div class="info-item"><i class="fas fa-phone"></i> <span data-i18n="dept1_ext">تحويلة: 301</span></div>
+                        <div class="info-item"><i class="fas fa-user-md"></i> <span data-i18n="dept1_consultants">12 استشارياً</span></div>
+                        <div class="info-item"><i class="fas fa-procedures"></i> <span data-i18n="dept1_beds">45 سريراً للعناية المركزة</span></div>
+                        <div class="info-item"><i class="fas fa-calendar-check"></i> <span data-i18n="dept1_extra">مواعيد فورية للحالات الطارئة</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- قسم المخ والأعصاب -->
+            <div class="dept-card" id="neurology" data-aos="fade-up">
+                <div class="dept-icon"><i class="fas fa-brain"></i></div>
+                <div class="dept-info">
+                    <h2 data-i18n="dept2_title">جراحة المخ والأعصاب</h2>
+                    <p data-i18n="dept2_full_desc">نوفر رعاية متقدمة لأمراض الجهاز العصبي المركزي والطرفي، بما في ذلك جراحة الأورام الدماغية، وجراحة العمود الفقري، وجراحة الأعصاب الطرفية. نستخدم تقنيات الملاحة العصبية والمراقبة العصبية أثناء العمليات لضمان أعلى مستويات الدقة والأمان. قسمنا مزود بغرف عمليات ذكية.</p>
+                    <div class="info-grid">
+                        <div class="info-item"><i class="fas fa-clock"></i> <span data-i18n="dept2_hours">السبت - الخميس: 8 صباحاً - 8 مساءً</span></div>
+                        <div class="info-item"><i class="fas fa-map-marker-alt"></i> <span data-i18n="dept2_location">المبنى الغربي - الطابق الخامس</span></div>
+                        <div class="info-item"><i class="fas fa-phone"></i> <span data-i18n="dept2_ext">تحويلة: 502</span></div>
+                        <div class="info-item"><i class="fas fa-user-md"></i> <span data-i18n="dept2_consultants">8 استشاريين</span></div>
+                        <div class="info-item"><i class="fas fa-procedures"></i> <span data-i18n="dept2_beds">30 سريراً للعناية العصبية</span></div>
+                        <div class="info-item"><i class="fas fa-calendar-check"></i> <span data-i18n="dept2_extra">العمليات المجدولة: أحد وأربعاء</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- قسم العظام -->
+            <div class="dept-card" id="orthopedics" data-aos="fade-up">
+                <div class="dept-icon"><i class="fas fa-bone"></i></div>
+                <div class="dept-info">
+                    <h2 data-i18n="dept3_title">جراحة العظام والمفاصل</h2>
+                    <p data-i18n="dept3_full_desc">نقدم خدمات متكاملة في جراحة العظام والمفاصل، بدءاً من علاج الكسور والإصابات الرياضية وصولاً إلى عمليات تبديل المفاصل الروبوتية. نستخدم تقنيات الطباعة ثلاثية الأبعاد لتخطيط العمليات المعقدة، ونوفر برامج تأهيل طبيعي مكثفة داخل القسم لضمان سرعة التعافي.</p>
+                    <div class="info-grid">
+                        <div class="info-item"><i class="fas fa-clock"></i> <span data-i18n="dept3_hours">الأحد - الخميس: 8 صباحاً - 9 مساءً</span></div>
+                        <div class="info-item"><i class="fas fa-map-marker-alt"></i> <span data-i18n="dept3_location">مبنى الجراحات - الطابق الثاني</span></div>
+                        <div class="info-item"><i class="fas fa-phone"></i> <span data-i18n="dept3_ext">تحويلة: 210</span></div>
+                        <div class="info-item"><i class="fas fa-user-md"></i> <span data-i18n="dept3_consultants">15 استشارياً</span></div>
+                        <div class="info-item"><i class="fas fa-procedures"></i> <span data-i18n="dept3_beds">55 سريراً للتنويم</span></div>
+                        <div class="info-item"><i class="fas fa-calendar-check"></i> <span data-i18n="dept3_extra">علاج طبيعي وتأهيل متكامل</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- قسم الأطفال -->
+            <div class="dept-card" id="pediatrics" data-aos="fade-up">
+                <div class="dept-icon"><i class="fas fa-child"></i></div>
+                <div class="dept-info">
+                    <h2 data-i18n="dept4_title">طب الأطفال والحديثي الولادة</h2>
+                    <p data-i18n="dept4_full_desc">يوفر قسم الأطفال رعاية طبية شاملة للأطفال منذ الولادة وحتى سن المراهقة. نضم وحدة عناية مركزة لحديثي الولادة (NICU) مجهزة بأحدث الحاضنات وأجهزة التنفس الصناعي. فريقنا الطبي متخصص في أمراض القلب الخلقية، وأمراض الدم، والغدد الصماء لدى الأطفال.</p>
+                    <div class="info-grid">
+                        <div class="info-item"><i class="fas fa-clock"></i> <span data-i18n="dept4_hours">24 ساعة / 7 أيام في الأسبوع</span></div>
+                        <div class="info-item"><i class="fas fa-map-marker-alt"></i> <span data-i18n="dept4_location">المبنى الرئيسي - الطابق الأرضي</span></div>
+                        <div class="info-item"><i class="fas fa-phone"></i> <span data-i18n="dept4_ext">تحويلة: 101</span></div>
+                        <div class="info-item"><i class="fas fa-user-md"></i> <span data-i18n="dept4_consultants">20 استشارياً</span></div>
+                        <div class="info-item"><i class="fas fa-procedures"></i> <span data-i18n="dept4_beds">60 سريراً + 25 حضانة</span></div>
+                        <div class="info-item"><i class="fas fa-calendar-check"></i> <span data-i18n="dept4_extra">عيادات تخصصية يومياً</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- قسم الطوارئ -->
+            <div class="dept-card" id="emergency" data-aos="fade-up">
+                <div class="dept-icon"><i class="fas fa-ambulance"></i></div>
+                <div class="dept-info">
+                    <h2 data-i18n="dept5_title">الطوارئ والإسعاف</h2>
+                    <p data-i18n="dept5_full_desc">قسم الطوارئ لدينا مفتوح على مدار الساعة طوال أيام الأسبوع لاستقبال جميع الحالات الطارئة والحرجة. نضم فريقاً متكاملاً من أطباء الطوارئ والممرضين المتخصصين، مع غرف عمليات طوارئ مجهزة بالكامل. زمن الاستجابة للحالات الحرجة أقل من 5 دقائق.</p>
+                    <div class="info-grid">
+                        <div class="info-item"><i class="fas fa-clock"></i> <span data-i18n="dept5_hours">24 ساعة / 7 أيام</span></div>
+                        <div class="info-item"><i class="fas fa-map-marker-alt"></i> <span data-i18n="dept5_location">المدخل الرئيسي - يسار البوابة</span></div>
+                        <div class="info-item"><i class="fas fa-phone"></i> <span data-i18n="dept5_ext">تحويلة: 999</span></div>
+                        <div class="info-item"><i class="fas fa-user-md"></i> <span data-i18n="dept5_consultants">25 طبيب طوارئ</span></div>
+                        <div class="info-item"><i class="fas fa-procedures"></i> <span data-i18n="dept5_beds">40 سريراً للعناية الحرجة</span></div>
+                        <div class="info-item"><i class="fas fa-calendar-check"></i> <span data-i18n="dept5_extra">لا حاجة لموعد مسبق</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- قسم العيون -->
+            <div class="dept-card" id="ophthalmology" data-aos="fade-up">
+                <div class="dept-icon"><i class="fas fa-eye"></i></div>
+                <div class="dept-info">
+                    <h2 data-i18n="dept6_title">طب وجراحة العيون</h2>
+                    <p data-i18n="dept6_full_desc">نقدم خدمات شاملة للعيون تشمل فحوصات النظر الدقيقة، جراحات الساد (المياه البيضاء) بتقنية الفاكو، تصحيح الإبصار بالليزر، وعلاج أمراض الشبكية والجلوكوما. نستخدم أحدث أجهزة التصوير المقطعي للعين (OCT) لضمان تشخيص دقيق.</p>
+                    <div class="info-grid">
+                        <div class="info-item"><i class="fas fa-clock"></i> <span data-i18n="dept6_hours">السبت - الخميس: 9 صباحاً - 7 مساءً</span></div>
+                        <div class="info-item"><i class="fas fa-map-marker-alt"></i> <span data-i18n="dept6_location">المبنى الشرقي - الطابق الرابع</span></div>
+                        <div class="info-item"><i class="fas fa-phone"></i> <span data-i18n="dept6_ext">تحويلة: 410</span></div>
+                        <div class="info-item"><i class="fas fa-user-md"></i> <span data-i18n="dept6_consultants">10 استشاريين</span></div>
+                        <div class="info-item"><i class="fas fa-procedures"></i> <span data-i18n="dept6_beds">20 سريراً</span></div>
+                        <div class="info-item"><i class="fas fa-calendar-check"></i> <span data-i18n="dept6_extra">عمليات الليزك كل يوم ثلاثاء</span></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="footer-bg">
+            <div class="star"></div>
+            <div class="star delay-1"></div>
+            <div class="star delay-2"></div>
+            <div class="star delay-3"></div>
+        </div>
+        
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4><i class="fas fa-hospital"></i> مستشفى الحياة</h4>
+                <p data-i18n="footer_about">نموذج رعاية صحية حكومي متطور. نلتزم بأعلى معايير الجودة والسلامة.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="quick_links">روابط سريعة</h4>
+                <ul>
+                    <li><a href="index.html" data-i18n="nav_home">الرئيسية</a></li>
+                    <li><a href="departments.html" data-i18n="nav_depts">الأقسام</a></li>
+                    <li><a href="doctors.html" data-i18n="nav_doctors">الأطباء</a></li>
+                    <li><a href="index.html#book" data-i18n="nav_book">حجز موعد</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4 data-i18n="contact_us">تواصل معنا</h4>
+                <ul class="contact-info">
+                    <li><i class="fas fa-phone"></i> <span data-i18n="phone">2222 1234</span></li>
+                    <li><i class="fas fa-envelope"></i> <span data-i18n="email">info@alhayat.kw</span></li>
+                    <li><i class="fas fa-map-marker-alt"></i> <span data-i18n="address">الكويت، حولي، شارع بيروت</span></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-i18n="copyright">© 2025 مستشفى الحياة الحكومي. قالب من <strong>موقعك</strong> – Mawqeak</p>
+        </div>
+    </footer>
+
+    <!-- Bottom Navigation Mobile -->
+    <nav class="bottom-nav" id="bottomNav">
+        <a href="index.html" class="bottom-nav-item"><i class="fas fa-home"></i><span data-i18n="nav_home">الرئيسية</span></a>
+        <a href="departments.html" class="bottom-nav-item active"><i class="fas fa-building"></i><span data-i18n="nav_depts">الأقسام</span></a>
+        <a href="doctors.html" class="bottom-nav-item"><i class="fas fa-user-md"></i><span data-i18n="nav_doctors">الأطباء</span></a>
+        <a href="index.html#book" class="bottom-nav-item"><i class="fas fa-calendar-check"></i><span data-i18n="nav_book">حجز موعد</span></a>
+    </nav>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="/hospital-template/js/lang.js"></script>
+    <script src="/hospital-template/js/main.js"></script>
+</body>
+</html>
