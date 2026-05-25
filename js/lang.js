@@ -76,7 +76,7 @@ const translations = {
         phone: '2222 1234',
         email: 'info@alhayat.kw',
         address: 'الكويت، حولي، شارع بيروت',
-        copyright: '© 2025 مستشفى الحياة الحكومي. قالب من <strong>موقعك</strong> – Mawqeak',
+        copyright: '© 2026 مستشفى الحياة الحكومي. قالب من <strong>موقعك</strong> – Mawqeak',
 
         // ========== صفحة الأقسام ==========
         depts_banner_title: 'أقسامنا الطبية المتطورة',
@@ -262,7 +262,7 @@ confirm_booking: 'تأكيد وإرسال الحجز'
         phone: '2222 1234',
         email: 'info@alhayat.kw',
         address: 'Kuwait, Hawally, Beirut Street',
-        copyright: '© 2025 Al-Hayat Government Hospital. Template by <strong>Mawqeak</strong>',
+        copyright: '© 2026 Al-Hayat Government Hospital. Template by <strong>Mawqeak</strong>',
 
         // ========== Departments Page ==========
         depts_banner_title: 'Our Advanced Medical Departments',
