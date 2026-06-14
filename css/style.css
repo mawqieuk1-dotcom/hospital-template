@@ -588,7 +588,6 @@ img { max-width:100%; }
     .form-row { grid-template-columns: 1fr; }
     .form-group.full { grid-column: span 1; }
     .bottom-nav { display: flex; }
-    body { padding-bottom: 70px; }
    .payment-options-modal {
         flex-direction: column;
     }
