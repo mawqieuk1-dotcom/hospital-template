@@ -4,20 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الأطباء | مستشفى الحياة الحكومي - الكويت</title>
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/dark-mode.css" id="dark-mode-css" disabled>
-    <!-- Favicon SVG -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a4c6b'/%3E%3Cpath d='M50 25 L70 45 L70 75 L30 75 L30 45 Z' fill='%2300c9a7'/%3E%3Crect x='42' y='50' width='16' height='18'
  rx='3' fill='%23fff'/%3E%3Ccircle cx='50' cy='38' r='6' fill='%23fff'/%3E%3C/svg%3E">
     <style>
-        /* أنماط خاصة بصفحة الأطباء */
         .page-banner {
             background: linear-gradient(135deg, #0a3d5c 0%, #0a4c6b 100%);
             color: #fff;
@@ -49,12 +43,10 @@
             margin: 0 auto;
         }
 
-        /* شبكة الأطباء */
         .doctors-section { padding: 80px 0; }
         .doctors-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         .doctors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
 
-        /* بطاقة طبيب */
         .doctor-profile {
             background: var(--card-bg);
             border-radius: 24px;
@@ -174,7 +166,6 @@
             box-shadow: 0 10px 25px rgba(0,201,167,0.3);
         }
 
-        /* استجابة */
         @media (max-width: 768px) {
             .doctors-grid { grid-template-columns: 1fr; }
             .page-banner h1 { font-size: 2.4rem; }
@@ -183,7 +174,6 @@
     </style>
 </head>
 <body>
-    <!-- ========== HEADER ========== -->
     <header class="header" id="header">
         <div class="container header-container">
             <a href="index.html" class="logo">
@@ -204,7 +194,6 @@
         </div>
     </header>
 
-    <!-- ========== PAGE BANNER ========== -->
     <section class="page-banner">
         <div class="header-bg">
             <div class="neon-line"></div>
@@ -223,12 +212,10 @@
         </div>
     </section>
 
-    <!-- ========== DOCTORS GRID ========== -->
     <section class="doctors-section">
         <div class="doctors-container">
             <div class="doctors-grid">
 
-                <!-- الدكتور 1: أحمد العمري - قلب -->
                 <div class="doctor-profile" data-aos="fade-up">
                     <div class="doctor-header">
                         <div class="doc-avatar-large"><i class="fas fa-user-md"></i></div>
@@ -247,7 +234,6 @@
                     </div>
                 </div>
 
-                <!-- الدكتور 2: سارة القحطاني - مخ وأعصاب -->
                 <div class="doctor-profile" data-aos="fade-up" data-aos-delay="100">
                     <div class="doctor-header">
                         <div class="doc-avatar-large"><i class="fas fa-user-md"></i></div>
@@ -266,7 +252,6 @@
                     </div>
                 </div>
 
-                <!-- الدكتور 3: خالد الشمري - عظام -->
                 <div class="doctor-profile" data-aos="fade-up" data-aos-delay="200">
                     <div class="doctor-header">
                         <div class="doc-avatar-large"><i class="fas fa-user-md"></i></div>
@@ -285,7 +270,6 @@
                     </div>
                 </div>
 
-                <!-- الدكتور 4: منى الحربي - أطفال -->
                 <div class="doctor-profile" data-aos="fade-up" data-aos-delay="300">
                     <div class="doctor-header">
                         <div class="doc-avatar-large"><i class="fas fa-user-md"></i></div>
@@ -304,7 +288,6 @@
                     </div>
                 </div>
 
-                <!-- الدكتور 5: فهد العتيبي - عيون -->
                 <div class="doctor-profile" data-aos="fade-up" data-aos-delay="400">
                     <div class="doctor-header">
                         <div class="doc-avatar-large"><i class="fas fa-user-md"></i></div>
@@ -323,7 +306,6 @@
                     </div>
                 </div>
 
-                <!-- الدكتور 6: نورة المطيري - طوارئ -->
                 <div class="doctor-profile" data-aos="fade-up" data-aos-delay="500">
                     <div class="doctor-header">
                         <div class="doc-avatar-large"><i class="fas fa-user-md"></i></div>
@@ -346,7 +328,6 @@
         </div>
     </section>
 
-    <!-- ========== FOOTER ========== -->
     <footer class="footer">
         <div class="footer-bg">
             <div class="star"></div>
@@ -389,7 +370,6 @@
         
     </footer>
 
-    <!-- Bottom Navigation Mobile -->
     <nav class="bottom-nav" id="bottomNav">
         <a href="index.html" class="bottom-nav-item"><i class="fas fa-home"></i><span data-i18n="nav_home">الرئيسية</span></a>
         <a href="departments.html" class="bottom-nav-item"><i class="fas fa-building"></i><span data-i18n="nav_depts">الأقسام</span></a>
@@ -397,7 +377,6 @@
         <a href="index.html#book" class="bottom-nav-item"><i class="fas fa-calendar-check"></i><span data-i18n="nav_book">حجز موعد</span></a>
     </nav>
 
-    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="js/lang.js"></script>
     <script src="js/main.js"></script>
