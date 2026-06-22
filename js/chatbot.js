@@ -1,10 +1,5 @@
-// ========== chatbot.js - المساعد الطبي الذكي (عربي/إنجليزي) ==========
-
-// ⚠️ مفتاح Gemini API (مجاني من https://aistudio.google.com/apikey)
-
 const GEMINI_API_KEY = 'AIzaSyBNS1jKJeFRvJMfXt59SDnlcJcOwMmUUJ8';
 
-// ========== قاموس الأقسام مع الكلمات المفتاحية (عربي + إنجليزي) ==========
 const medicalDatabase = [
     {
         deptAR: 'طب وجراحة العيون',
@@ -146,7 +141,6 @@ const medicalDatabase = [
     }
 ];
 
-// ========== الردود السريعة (عربي + إنجليزي) ==========
 const quickReplies = {
     ar: {
         'مرحبا': 'أهلاً بك! أنا المساعد الطبي لمستشفى الحياة. صف لي أعراضك أو شكواك، وسأحللها وأقترح القسم المناسب لك.',
@@ -165,10 +159,8 @@ const quickReplies = {
     }
 };
 
-// تاريخ المحادثة
 let conversationHistory = [];
 
-// ========== إنشاء واجهة الشات ==========
 function createChatbotHTML() {
     const isArabic = document.documentElement.lang === 'ar';
     const welcomeMsg = isArabic
@@ -217,7 +209,6 @@ function createChatbotHTML() {
     document.body.insertAdjacentHTML('beforeend', chatbotHTML);
 }
 
-// ========== تحليل النص واكتشاف القسم ==========
 function analyzeSymptoms(text) {
     const textLower = text.toLowerCase().trim();
     const matches = [];
@@ -228,7 +219,6 @@ function analyzeSymptoms(text) {
         
         dept.keywords.forEach(keyword => {
             if (textLower.includes(keyword.toLowerCase())) {
-                // الكلمات الأطول تعطي نقاط أكثر
                 score += keyword.length > 4 ? 3 : keyword.length > 2 ? 2 : 1;
                 matchedKeywords.push(keyword);
             }
@@ -249,7 +239,6 @@ function analyzeSymptoms(text) {
     return matches;
 }
 
-// ========== تحليل عبر Gemini AI ==========
 async function analyzeWithAI(text, matchedDepts) {
     if (GEMINI_API_KEY === 'AIzaSyBNS1jKJeFRvJMfXt59SDnlcJcOwMmUUJ8') return null;
     
@@ -289,12 +278,10 @@ async function analyzeWithAI(text, matchedDepts) {
     }
 }
 
-// ========== بناء الرد المحلي ==========
 function buildLocalReply(text, matches) {
     const isArabic = document.documentElement.lang === 'ar';
     const lowerText = text.toLowerCase().trim();
     
-    // الردود السريعة
     const replies = quickReplies[isArabic ? 'ar' : 'en'];
     for (const [key, reply] of Object.entries(replies)) {
         if (lowerText.includes(key)) return reply;
@@ -309,7 +296,6 @@ function buildLocalReply(text, matches) {
     const topMatch = matches[0];
     const deptName = isArabic ? topMatch.deptAR : topMatch.deptEN;
     
-    // تعاطف
     const empathyAR = ['أتمنى أن تكون بخير،', 'أتفهم شعورك،', 'لا تقلق، سنساعدك،', 'صحح الله بدنك،'];
     const empathyEN = ['I hope you feel better,', 'I understand how you feel,', 'Don\'t worry, we\'re here to help,', 'Wishing you good health,'];
     const empathy = isArabic ? empathyAR[Math.floor(Math.random() * empathyAR.length)] : empathyEN[Math.floor(Math.random() * empathyEN.length)];
@@ -335,7 +321,6 @@ function buildLocalReply(text, matches) {
     return reply;
 }
 
-// ========== عرض رسالة ==========
 function addMessage(content, type = 'bot') {
     const body = document.getElementById('chatbotBody');
     const div = document.createElement('div');
@@ -345,7 +330,6 @@ function addMessage(content, type = 'bot') {
     body.scrollTop = body.scrollHeight;
 }
 
-// ========== مؤشر الكتابة ==========
 function showTyping() {
     const body = document.getElementById('chatbotBody');
     const div = document.createElement('div');
@@ -361,7 +345,6 @@ function hideTyping() {
     if (typing) typing.remove();
 }
 
-// ========== تحديث لغة الشات ==========
 function updateChatbotLanguage() {
     const chatbotBody = document.getElementById('chatbotBody');
     if (!chatbotBody) return;
@@ -377,7 +360,6 @@ function updateChatbotLanguage() {
     if (botStatus) botStatus.textContent = isArabic ? 'متصل | مستشفى الحياة' : 'Online | Al-Hayat Hospital';
 }
 
-// ========== إرسال رسالة ==========
 async function sendMessage() {
     const input = document.getElementById('chatbotInput');
     const text = input.value.trim();
@@ -391,13 +373,8 @@ async function sendMessage() {
     
     showTyping();
     
-    // تحليل محلي
     const matches = analyzeSymptoms(text);
-    
-    // محاولة AI
     let reply = await analyzeWithAI(text, matches);
-    
-    // Fallback للتحليل المحلي
     if (!reply) {
         await new Promise(resolve => setTimeout(resolve, 1000));
         reply = buildLocalReply(text, matches);
@@ -408,13 +385,11 @@ async function sendMessage() {
     conversationHistory.push({ role: 'assistant', content: reply });
 }
 
-// ========== رسالة سريعة ==========
 function sendQuickMessage(text) {
     document.getElementById('chatbotInput').value = text;
     sendMessage();
 }
 
-// ========== تهيئة الشات ==========
 document.addEventListener('DOMContentLoaded', function() {
     createChatbotHTML();
     
@@ -434,7 +409,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// ========== استدعاء تحديث اللغة عند تغييرها ==========
 window.addEventListener('languageChanged', function() {
     updateChatbotLanguage();
 });
