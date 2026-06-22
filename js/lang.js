@@ -1,21 +1,16 @@
 const translations = {
     ar: {
-        // ========== عام ==========
         nav_home: 'الرئيسية',
         nav_depts: 'الأقسام',
         nav_doctors: 'الأطباء',
         nav_book: 'حجز موعد',
         lang_btn: 'English',
         dark_mode: 'الوضع الليلي',
-
-        // ========== الصفحة الرئيسية - Hero ==========
-        hero_title1: 'رعاية صحية',
+hero_title1: 'رعاية صحية',
         hero_title2: 'تسبق المستقبل',
         hero_desc: 'مستشفى الحياة الحكومي في الكويت، أحدث التقنيات مع لمسة إنسانية. نخدم أكثر من مليون مريض سنويًا.',
         hero_btn1: 'احجز موعدك',
         hero_btn2: 'استكشف الأقسام',
-
-        // ========== لماذا تختارنا ==========
         why_title: 'لماذا تختارنا',
         why_sub: 'مزايا تجعلنا الخيار الأول لصحتك',
         why1_title: 'تقنيات حديثة',
@@ -26,8 +21,6 @@ const translations = {
         why3_desc: 'طوارئ مفتوحة على مدار الساعة',
         why4_title: 'راحة المريض',
         why4_desc: 'غرف فندقية وإقامة مميزة',
-
-        // ========== معاينة الأقسام ==========
         depts_title: 'أقسامنا المتطورة',
         depts_sub: 'نقدم رعاية شاملة عبر مراكز تميز عالمية',
         depts_link: 'عرض كل الأقسام',
@@ -43,9 +36,7 @@ const translations = {
         dept4_title: 'طب الأطفال',
         dept4_desc: 'رعاية فائقة للأطفال الخدج',
         dept4_detail: 'وحدة عناية مركزة لحديثي الولادة مجهزة بأحدث الأجهزة. 20 استشارياً و25 حضّانة. تحويلة 101.',
-
-        // ========== معاينة الأطباء ==========
-        docs_title: 'نخبة من أطبائنا',
+docs_title: 'نخبة من أطبائنا',
         docs_sub: 'فريق طبي مؤهل بأعلى الشهادات والخبرات',
         docs_link: 'عرض كل الأطباء',
         doc1_name: 'د. أحمد العمري',
@@ -56,8 +47,6 @@ const translations = {
         doc3_detail: 'استشاري جراحة العظام والمفاصل. الزمالة الألمانية، خبير الروبوتات الجراحية. العيادة: أحد، ثلاثاء، خميس 8-1.',
         doc4_name: 'د. منى الحربي',
         doc4_detail: 'استشارية طب الأطفال والحديثي الولادة. الزمالة الكندية، حاصلة على جائزة التميز الطبي. العيادة: سبت، اثنين، أربعاء 9-4.',
-
-        // ========== نموذج الحجز ==========
         book_title: 'احجز موعدك بذكاء',
         book_sub: 'املأ البيانات وسيتم تأكيد الحجز عبر البريد فوراً',
         form_name: 'الاسم الكامل',
@@ -68,8 +57,6 @@ const translations = {
         form_time: 'الوقت المفضل',
         form_notes: 'ملاحظات إضافية',
         form_submit: 'تأكيد الحجز',
-
-        // ========== فوتر ==========
         footer_about: 'نموذج رعاية صحية حكومي متطور. نلتزم بأعلى معايير الجودة والسلامة.',
         quick_links: 'روابط سريعة',
         contact_us: 'تواصل معنا',
@@ -77,8 +64,6 @@ const translations = {
         email: 'info@alhayat.kw',
         address: 'الكويت، حولي، شارع بيروت',
         copyright: '© 2026 مستشفى الحياة الحكومي. قالب من <strong>موقعك</strong> – Mawqeak',
-
-        // ========== صفحة الأقسام ==========
         depts_banner_title: 'أقسامنا الطبية المتطورة',
         depts_banner_desc: 'نقدم رعاية صحية شاملة عبر مراكز تميز عالمية مجهزة بأحدث التقنيات الطبية',
         dept1_full_desc: 'يقدم قسم أمراض القلب لدينا خدمات تشخيصية وعلاجية متكاملة باستخدام أحدث تقنيات القسطرة القلبية وجراحة القلب المفتوح. يضم القسم نخبة من الاستشاريين الحاصلين على زمالات دولية من أرقى الجامعات العالمية. نقدم أيضاً برامج متخصصة لإعادة التأهيل القلبي والإشراف الطبي المستمر.',
@@ -125,8 +110,6 @@ const translations = {
         dept6_consultants: '10 استشاريين',
         dept6_beds: '20 سريراً',
         dept6_extra: 'عمليات الليزك كل يوم ثلاثاء',
-
-        // ========== صفحة الأطباء ==========
         doctors_banner_title: 'نخبة من أطبائنا',
         doctors_banner_desc: 'فريق طبي متميز مؤهل بأعلى الشهادات والخبرات من أرقى الجامعات العالمية',
         doc1_specialty: 'استشاري أمراض القلب والقسطرة',
@@ -167,10 +150,7 @@ const translations = {
         doc6_clinic: 'متواجدة في قسم الطوارئ 24/7',
         doc6_ext: 'تحويلة: 999',
         doc_book_btn: 'احجز موعداً مع الدكتور',
-
-        // ========== Modal ==========
         modal_close: 'إغلاق',
-
         payment_title: 'طريقة الدفع',
 payment_cod: 'دفع عند الاستلام',
 payment_bank: 'تحويل بنكي',
@@ -186,22 +166,17 @@ payment_modal_title: 'اختر طريقة الدفع',
 confirm_booking: 'تأكيد وإرسال الحجز'
     },
     en: {
-        // ========== General ==========
         nav_home: 'Home',
         nav_depts: 'Departments',
         nav_doctors: 'Doctors',
         nav_book: 'Appointment',
         lang_btn: 'العربية',
         dark_mode: 'Dark Mode',
-
-        // ========== Home - Hero ==========
         hero_title1: 'Healthcare',
         hero_title2: 'Ahead of the Future',
         hero_desc: 'Al-Hayat Government Hospital in Kuwait, cutting-edge technology with a human touch. Serving over a million patients annually.',
         hero_btn1: 'Book an Appointment',
         hero_btn2: 'Explore Departments',
-
-        // ========== Why Choose Us ==========
         why_title: 'Why Choose Us',
         why_sub: 'Features that make us your first choice for health',
         why1_title: 'Modern Technology',
@@ -212,8 +187,6 @@ confirm_booking: 'تأكيد وإرسال الحجز'
         why3_desc: 'Emergency open around the clock',
         why4_title: 'Patient Comfort',
         why4_desc: 'Hotel-like rooms & premium stay',
-
-        // ========== Departments Preview ==========
         depts_title: 'Our Advanced Departments',
         depts_sub: 'Comprehensive care through world-class centers',
         depts_link: 'View All Departments',
@@ -229,8 +202,6 @@ confirm_booking: 'تأكيد وإرسال الحجز'
         dept4_title: 'Pediatrics',
         dept4_desc: 'Advanced NICU care',
         dept4_detail: 'NICU with state-of-the-art equipment. 20 consultants, 25 incubators. Ext. 101.',
-
-        // ========== Doctors Preview ==========
         docs_title: 'Our Distinguished Doctors',
         docs_sub: 'Highly qualified medical team with international expertise',
         docs_link: 'View All Doctors',
@@ -242,8 +213,6 @@ confirm_booking: 'تأكيد وإرسال الحجز'
         doc3_detail: 'Orthopedic Surgery Consultant. German board, robotic surgery expert. Clinic: Sun, Tue, Thu 8-1.',
         doc4_name: 'Dr. Mona Al-Harbi',
         doc4_detail: 'Pediatrics & Neonatology Consultant. Canadian fellowship, Medical Excellence Award. Clinic: Sat, Mon, Wed 9-4.',
-
-        // ========== Booking Form ==========
         book_title: 'Smart Booking',
         book_sub: 'Fill in your details and receive instant email confirmation',
         form_name: 'Full Name',
@@ -254,8 +223,6 @@ confirm_booking: 'تأكيد وإرسال الحجز'
         form_time: 'Preferred Time',
         form_notes: 'Additional Notes',
         form_submit: 'Confirm Booking',
-
-        // ========== Footer ==========
         footer_about: 'A model of advanced government healthcare. We adhere to the highest standards of quality and safety.',
         quick_links: 'Quick Links',
         contact_us: 'Contact Us',
@@ -263,8 +230,6 @@ confirm_booking: 'تأكيد وإرسال الحجز'
         email: 'info@alhayat.kw',
         address: 'Kuwait, Hawally, Beirut Street',
         copyright: '© 2026 Al-Hayat Government Hospital. Template by <strong>Mawqeak</strong>',
-
-        // ========== Departments Page ==========
         depts_banner_title: 'Our Advanced Medical Departments',
         depts_banner_desc: 'Comprehensive healthcare through world-class centers of excellence equipped with the latest medical technology',
         dept1_full_desc: 'Our Cardiology Department offers integrated diagnostic and therapeutic services using the latest cardiac catheterization and open-heart surgery techniques. The department includes elite consultants with international fellowships from top universities worldwide. We also provide specialized cardiac rehabilitation programs.',
@@ -311,8 +276,6 @@ confirm_booking: 'تأكيد وإرسال الحجز'
         dept6_consultants: '10 Consultants',
         dept6_beds: '20 Beds',
         dept6_extra: 'LASIK surgeries every Tuesday',
-
-        // ========== Doctors Page ==========
         doctors_banner_title: 'Our Distinguished Doctors',
         doctors_banner_desc: 'An outstanding medical team with the highest international degrees and experience from top universities worldwide',
         doc1_specialty: 'Cardiology & Catheterization Consultant',
@@ -353,8 +316,6 @@ confirm_booking: 'تأكيد وإرسال الحجز'
         doc6_clinic: 'Available in ER 24/7',
         doc6_ext: 'Ext: 999',
         doc_book_btn: 'Book an Appointment',
-
-        // ========== Modal ==========
         modal_close: 'Close',
         payment_title: 'Payment Method',
 payment_cod: 'Cash on Delivery',
