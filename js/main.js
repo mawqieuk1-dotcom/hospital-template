@@ -1,7 +1,6 @@
 (function() {
     AOS.init({ duration: 800, once: true });
 
-    // Dark Mode
     const darkToggle = document.getElementById('darkModeToggle');
     const darkCSS = document.getElementById('dark-mode-css');
     const body = document.body;
@@ -21,28 +20,22 @@
 
     darkToggle.addEventListener('click', () => setDark(!body.classList.contains('dark')));
     if (localStorage.getItem('darkMode') === 'enabled') setDark(true);
-
-    // Scroll Hide/Show Header & Bottom Nav
-    const header = document.getElementById('header');
+const header = document.getElementById('header');
     const bottomNav = document.getElementById('bottomNav');
     let lastScrollTop = 0;
 
     window.addEventListener('scroll', function() {
         let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         if (scrollTop > lastScrollTop && scrollTop > 80) {
-            // scroll down
             header.classList.add('header-hidden');
             if (bottomNav) bottomNav.classList.add('bottom-nav-hidden');
         } else {
-            // scroll up
-            header.classList.remove('header-hidden');
+           header.classList.remove('header-hidden');
             if (bottomNav) bottomNav.classList.remove('bottom-nav-hidden');
         }
         lastScrollTop = scrollTop;
     });
-
-    // Bottom Nav Active State (لم يعد لدينا menu toggle)
-    const bottomItems = document.querySelectorAll('.bottom-nav-item');
+const bottomItems = document.querySelectorAll('.bottom-nav-item');
     const currentPage = window.location.pathname.split('/').pop();
     bottomItems.forEach(item => {
         if (item.getAttribute('href') === currentPage || (currentPage === '' && item.getAttribute('href') === 'index.html')) {
@@ -53,9 +46,7 @@
             this.classList.add('active');
         });
     });
-
-    // Modal Functions
-    window.openModal = function(titleKey, descKey) {
+ window.openModal = function(titleKey, descKey) {
         const title = translations[currentLang]?.[titleKey] || titleKey;
         const desc = translations[currentLang]?.[descKey] || descKey;
         document.getElementById('modalTitle').textContent = title;
@@ -68,9 +59,7 @@
     document.getElementById('infoModal').addEventListener('click', function(e) {
         if (e.target === this) closeModal();
     });
-
-    // تحديث المودال عند تغيير اللغة
-    window.addEventListener('languageChanged', function() {
+window.addEventListener('languageChanged', function() {
         const modal = document.getElementById('infoModal');
         if (modal.classList.contains('active')) {
             // يمكن تخزين المفاتيح المستخدمة، لكن للتبسيط نعيد فتحها بمفاتيح افتراضية
