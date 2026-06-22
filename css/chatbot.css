@@ -1,4 +1,3 @@
-/* ========== Chatbot Styles ========== */
 .chatbot-container {
     position: fixed;
     bottom: 90px;
@@ -6,8 +5,6 @@
     z-index: 2000;
     font-family: 'Tajawal', sans-serif;
 }
-
-/* زر فتح الشات */
 .chatbot-toggle {
     width: 60px;
     height: 60px;
@@ -41,8 +38,6 @@
     0% { transform: scale(1); opacity: 1; }
     100% { transform: scale(1.6); opacity: 0; }
 }
-
-/* نافذة الشات */
 .chatbot-window {
     position: absolute;
     bottom: 80px;
@@ -65,8 +60,6 @@
     from { opacity: 0; transform: translateY(30px); }
     to { opacity: 1; transform: translateY(0); }
 }
-
-/* هيدر الشات */
 .chatbot-header {
     background: linear-gradient(135deg, #0a4c6b, #083b53);
     color: #fff;
@@ -108,8 +101,6 @@
     transition: opacity 0.3s;
 }
 .chatbot-close:hover { opacity: 1; }
-
-/* جسم الشات */
 .chatbot-body {
     flex: 1;
     padding: 20px;
@@ -126,8 +117,6 @@
     background: var(--accent);
     border-radius: 10px;
 }
-
-/* فقاعات الرسائل */
 .message {
     max-width: 85%;
     padding: 12px 16px;
@@ -177,8 +166,6 @@
     0%, 60%, 100% { transform: translateY(0); }
     30% { transform: translateY(-10px); }
 }
-
-/* زر الحجز داخل الشات */
 .quick-book-btn {
     display: inline-block;
     padding: 8px 18px;
@@ -196,8 +183,6 @@
 .quick-book-btn:hover {
     background: #083b53;
 }
-
-/* حقل الإدخال */
 .chatbot-footer {
     padding: 14px 20px;
     background: var(--card-bg);
@@ -239,8 +224,6 @@
     background: var(--accent-hover);
     transform: scale(1.05);
 }
-
-/* اقتراحات سريعة */
 .quick-suggestions {
     display: flex;
     flex-wrap: wrap;
@@ -261,8 +244,6 @@
     background: var(--accent);
     color: #fff;
 }
-
-/* تجاوب */
 @media (max-width: 480px) {
     .chatbot-window {
         width: 95vw;
