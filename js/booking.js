@@ -1,9 +1,6 @@
-// ========== booking.js - إرسال احترافي عبر واتساب ==========
 let selectedPayment = null;
 
-// ========== فتح نافذة الدفع ==========
 function openPaymentModal() {
-    // تنظيف الأخطاء السابقة
     document.querySelectorAll('.error-msg').forEach(e => e.remove());
     document.querySelectorAll('#bookingForm input, #bookingForm select').forEach(el => {
         el.style.borderColor = '#dde4ec';
@@ -14,7 +11,6 @@ function openPaymentModal() {
         formFeedback.style.color = '';
     }
 
-    // جلب القيم
     const name = document.getElementById('name')?.value?.trim() || '';
     const phone = document.getElementById('phone')?.value?.trim() || '';
     const email = document.getElementById('email')?.value?.trim() || '';
@@ -36,7 +32,6 @@ function openPaymentModal() {
         if (selectedDate < today) errors.push({ field: 'date', msg: 'التاريخ لا يمكن أن يكون في الماضي' });
     }
 
-    // عرض الأخطاء
     if (errors.length > 0) {
         errors.forEach(err => {
             const input = document.getElementById(err.field);
@@ -59,8 +54,7 @@ function openPaymentModal() {
         return;
     }
 
-    // فتح مودال الدفع
-    const paymentModal = document.getElementById('paymentModal');
+const paymentModal = document.getElementById('paymentModal');
     if (paymentModal) paymentModal.classList.add('active');
     
     document.getElementById('bankSection').style.display = 'none';
@@ -75,7 +69,6 @@ function openPaymentModal() {
     document.getElementById('modalFeedback').textContent = '';
 }
 
-// ========== اختيار طريقة الدفع ==========
 function selectPayment(method) {
     selectedPayment = method;
     document.getElementById('btnCod').classList.remove('selected');
@@ -91,18 +84,15 @@ function selectPayment(method) {
     document.getElementById('modalActions').style.display = 'block';
 }
 
-// ========== إغلاق مودال الدفع ==========
 function closePaymentModal() {
     document.getElementById('paymentModal').classList.remove('active');
 }
 
-// ========== رفع الصورة إلى خدمة مجانية ==========
 async function uploadImageToHost(file) {
     const formData = new FormData();
     formData.append('image', file);
     
     try {
-        // استخدام imgbb (خدمة مجانية لرفع الصور)
         const response = await fetch('https://api.imgbb.com/1/upload?key=9dc838c75907d91865c9164d1a78c91a', {
             method: 'POST',
             body: formData
@@ -118,7 +108,6 @@ async function uploadImageToHost(file) {
     }
 }
 
-// ========== الإرسال النهائي عبر واتساب ==========
 function submitBooking() {
     const modalFeedback = document.getElementById('modalFeedback');
     
@@ -146,7 +135,6 @@ function submitBooking() {
     const deptSelect = document.getElementById('department');
     const deptText = deptSelect?.options[deptSelect.selectedIndex]?.text || department;
 
-    // بناء رسالة واتساب - استخدام نجوم ورموز بسيطة
     let message = `*حجز موعد جديد - مستشفى الحياة الحكومي*\n\n`;
     message += `السلام عليكم ورحمة الله وبركاته\n`;
     message += `تم استلام طلب حجز موعد جديد:\n\n`;
@@ -176,17 +164,13 @@ function submitBooking() {
     message += `مع تحيات\n`;
     message += `مستشفى الحياة الحكومي - الكويت`;
 
-    // استخدام encodeURIComponent للتشفير الصحيح
     const encodedMessage = encodeURIComponent(message);
     
-    // رقم صاحب المشروع
-    const ownerNumber = '966507652943';
+     const ownerNumber = '966507652943';
     
-    // رابط واتساب
-    const whatsappURL = `https://wa.me/${ownerNumber}?text=${encodedMessage}`;
+   const whatsappURL = `https://wa.me/${ownerNumber}?text=${encodedMessage}`;
 
-    // فتح واتساب
-    window.open(whatsappURL, '_blank');
+   window.open(whatsappURL, '_blank');
 
     if (modalFeedback) modalFeedback.textContent = 'تم فتح واتساب - اضغط ارسال لتأكيد الحجز';
     
@@ -201,7 +185,6 @@ function submitBooking() {
 }
 
 
-// ========== رفع الصورة (معاينة) ==========
 document.addEventListener('DOMContentLoaded', function() {
     const uploadArea = document.getElementById('uploadArea');
     const receiptFile = document.getElementById('receiptFile');
@@ -226,7 +209,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // إغلاق المودال عند النقر خارجه
     const paymentModal = document.getElementById('paymentModal');
     if (paymentModal) {
         paymentModal.addEventListener('click', function(e) {
